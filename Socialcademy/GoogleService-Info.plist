@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>31434234700-qafj86g1hepnk1s93qjuubm2d86alks3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.31434234700-qafj86g1hepnk1s93qjuubm2d86alks3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCa3lWExXyOiVRnoqtqrvTasxIX6Kmi4V0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>31434234700</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>roman.sundurov.work.Socialcademy</string>
+	<key>PROJECT_ID</key>
+	<string>socialcademy-e3a43</string>
+	<key>STORAGE_BUCKET</key>
+	<string>socialcademy-e3a43.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:31434234700:ios:5d9a3a510650f627eb8de9</string>
+</dict>
+</plist>
