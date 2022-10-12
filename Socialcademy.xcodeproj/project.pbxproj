@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		47449F6C28F6D743001323C4 /* SocialcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449F6B28F6D743001323C4 /* SocialcademyApp.swift */; };
-		47449F6E28F6D743001323C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449F6D28F6D743001323C4 /* ContentView.swift */; };
 		47449F7028F6D745001323C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47449F6F28F6D745001323C4 /* Assets.xcassets */; };
 		47449F7328F6D745001323C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47449F7228F6D745001323C4 /* Preview Assets.xcassets */; };
 		47449F7D28F6D746001323C4 /* SocialcademyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449F7C28F6D746001323C4 /* SocialcademyTests.swift */; };
@@ -20,6 +19,15 @@
 		47449F9D28F6DFA5001323C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47449F9C28F6DFA5001323C4 /* GoogleService-Info.plist */; };
 		47449F9E28F6DFA5001323C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47449F9C28F6DFA5001323C4 /* GoogleService-Info.plist */; };
 		47449F9F28F6DFA5001323C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47449F9C28F6DFA5001323C4 /* GoogleService-Info.plist */; };
+		47449FA428F7670B001323C4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449FA328F7670B001323C4 /* Post.swift */; };
+		47449FA528F7670B001323C4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449FA328F7670B001323C4 /* Post.swift */; };
+		47449FA628F7670B001323C4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449FA328F7670B001323C4 /* Post.swift */; };
+		47449FA828F76821001323C4 /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449FA728F76821001323C4 /* PostsList.swift */; };
+		47449FA928F76821001323C4 /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449FA728F76821001323C4 /* PostsList.swift */; };
+		47449FAA28F76821001323C4 /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449FA728F76821001323C4 /* PostsList.swift */; };
+		47449FAC28F777C7001323C4 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449FAB28F777C7001323C4 /* PostRow.swift */; };
+		47449FAD28F777C7001323C4 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449FAB28F777C7001323C4 /* PostRow.swift */; };
+		47449FAE28F777C7001323C4 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449FAB28F777C7001323C4 /* PostRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +50,6 @@
 /* Begin PBXFileReference section */
 		47449F6828F6D743001323C4 /* Socialcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Socialcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47449F6B28F6D743001323C4 /* SocialcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialcademyApp.swift; sourceTree = "<group>"; };
-		47449F6D28F6D743001323C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		47449F6F28F6D745001323C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47449F7228F6D745001323C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		47449F7828F6D746001323C4 /* SocialcademyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialcademyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +58,9 @@
 		47449F8628F6D746001323C4 /* SocialcademyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialcademyUITests.swift; sourceTree = "<group>"; };
 		47449F8828F6D746001323C4 /* SocialcademyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialcademyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		47449F9C28F6DFA5001323C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		47449FA328F7670B001323C4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		47449FA728F76821001323C4 /* PostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsList.swift; sourceTree = "<group>"; };
+		47449FAB28F777C7001323C4 /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +94,7 @@
 		47449F5F28F6D743001323C4 = {
 			isa = PBXGroup;
 			children = (
+				47449FA228F766E4001323C4 /* Post */,
 				47449F6A28F6D743001323C4 /* Socialcademy */,
 				47449F7B28F6D746001323C4 /* SocialcademyTests */,
 				47449F8528F6D746001323C4 /* SocialcademyUITests */,
@@ -105,10 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				47449F6B28F6D743001323C4 /* SocialcademyApp.swift */,
-				47449F6D28F6D743001323C4 /* ContentView.swift */,
-				47449F6F28F6D745001323C4 /* Assets.xcassets */,
-				47449F9C28F6DFA5001323C4 /* GoogleService-Info.plist */,
-				47449F7128F6D745001323C4 /* Preview Content */,
+				47449FA028F763CB001323C4 /* Views */,
+				47449FA128F76403001323C4 /* Resources */,
 			);
 			path = Socialcademy;
 			sourceTree = "<group>";
@@ -136,6 +145,33 @@
 				47449F8828F6D746001323C4 /* SocialcademyUITestsLaunchTests.swift */,
 			);
 			path = SocialcademyUITests;
+			sourceTree = "<group>";
+		};
+		47449FA028F763CB001323C4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47449FA728F76821001323C4 /* PostsList.swift */,
+				47449FAB28F777C7001323C4 /* PostRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		47449FA128F76403001323C4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				47449F6F28F6D745001323C4 /* Assets.xcassets */,
+				47449F9C28F6DFA5001323C4 /* GoogleService-Info.plist */,
+				47449F7128F6D745001323C4 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		47449FA228F766E4001323C4 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				47449FA328F7670B001323C4 /* Post.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,8 +315,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47449F6E28F6D743001323C4 /* ContentView.swift in Sources */,
+				47449FA428F7670B001323C4 /* Post.swift in Sources */,
 				47449F6C28F6D743001323C4 /* SocialcademyApp.swift in Sources */,
+				47449FAC28F777C7001323C4 /* PostRow.swift in Sources */,
+				47449FA828F76821001323C4 /* PostsList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +327,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				47449F7D28F6D746001323C4 /* SocialcademyTests.swift in Sources */,
+				47449FA928F76821001323C4 /* PostsList.swift in Sources */,
+				47449FAD28F777C7001323C4 /* PostRow.swift in Sources */,
+				47449FA528F7670B001323C4 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +338,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				47449F8928F6D746001323C4 /* SocialcademyUITestsLaunchTests.swift in Sources */,
+				47449FA628F7670B001323C4 /* Post.swift in Sources */,
+				47449FAE28F777C7001323C4 /* PostRow.swift in Sources */,
 				47449F8728F6D746001323C4 /* SocialcademyUITests.swift in Sources */,
+				47449FAA28F76821001323C4 /* PostsList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +482,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Socialcademy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Socialcademy/Resources/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6VWFU6AND8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -467,7 +511,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Socialcademy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Socialcademy/Resources/Preview\\ Content";
 				DEVELOPMENT_TEAM = 6VWFU6AND8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
