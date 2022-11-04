@@ -19,6 +19,12 @@
 		470A206328FAEA030066A667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 470A206228FAEA030066A667 /* GoogleService-Info.plist */; };
 		470A206428FAEA030066A667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 470A206228FAEA030066A667 /* GoogleService-Info.plist */; };
 		470A206528FAEA030066A667 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 470A206228FAEA030066A667 /* GoogleService-Info.plist */; };
+		470A206928FB17F40066A667 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470A206828FB17F40066A667 /* Loadable.swift */; };
+		470A206A28FB17F40066A667 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470A206828FB17F40066A667 /* Loadable.swift */; };
+		470A206B28FB17F40066A667 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470A206828FB17F40066A667 /* Loadable.swift */; };
+		470A206E28FB209E0066A667 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470A206D28FB209E0066A667 /* EmptyListView.swift */; };
+		470A206F28FB209E0066A667 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470A206D28FB209E0066A667 /* EmptyListView.swift */; };
+		470A207028FB209E0066A667 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470A206D28FB209E0066A667 /* EmptyListView.swift */; };
 		47449F6C28F6D743001323C4 /* SocialcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449F6B28F6D743001323C4 /* SocialcademyApp.swift */; };
 		47449F7028F6D745001323C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47449F6F28F6D745001323C4 /* Assets.xcassets */; };
 		47449F7328F6D745001323C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47449F7228F6D745001323C4 /* Preview Assets.xcassets */; };
@@ -61,6 +67,8 @@
 		470A205828FABA960066A667 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		470A205C28FABFFC0066A667 /* PostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRepository.swift; sourceTree = "<group>"; };
 		470A206228FAEA030066A667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		470A206828FB17F40066A667 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		470A206D28FB209E0066A667 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		47449F6828F6D743001323C4 /* Socialcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Socialcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47449F6B28F6D743001323C4 /* SocialcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialcademyApp.swift; sourceTree = "<group>"; };
 		47449F6F28F6D745001323C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +127,22 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		470A206628FB17D60066A667 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				470A206828FB17F40066A667 /* Loadable.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		470A206C28FB207E0066A667 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				470A206D28FB209E0066A667 /* EmptyListView.swift */,
+			);
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
 		47449F5F28F6D743001323C4 = {
 			isa = PBXGroup;
 			children = (
@@ -143,8 +167,10 @@
 			isa = PBXGroup;
 			children = (
 				47449F6B28F6D743001323C4 /* SocialcademyApp.swift */,
+				470A206628FB17D60066A667 /* Utilities */,
 				470A206128FAC0170066A667 /* Repositories */,
 				470A205728FABA7A0066A667 /* View Models */,
+				470A206C28FB207E0066A667 /* Supporting Views */,
 				47449FA228F766E4001323C4 /* Post */,
 				47449FA028F763CB001323C4 /* Views */,
 				47449FA128F76403001323C4 /* Resources */,
@@ -351,8 +377,10 @@
 				470A205D28FABFFC0066A667 /* PostsRepository.swift in Sources */,
 				470A205928FABA960066A667 /* PostsViewModel.swift in Sources */,
 				47449FAC28F777C7001323C4 /* PostRow.swift in Sources */,
+				470A206928FB17F40066A667 /* Loadable.swift in Sources */,
 				47449FA828F76821001323C4 /* PostsList.swift in Sources */,
 				470A205428F9D71F0066A667 /* NewPostForm.swift in Sources */,
+				470A206E28FB209E0066A667 /* EmptyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,8 +393,10 @@
 				470A205E28FABFFC0066A667 /* PostsRepository.swift in Sources */,
 				470A205A28FABA960066A667 /* PostsViewModel.swift in Sources */,
 				47449FAD28F777C7001323C4 /* PostRow.swift in Sources */,
+				470A206A28FB17F40066A667 /* Loadable.swift in Sources */,
 				47449FA528F7670B001323C4 /* Post.swift in Sources */,
 				470A205528F9D71F0066A667 /* NewPostForm.swift in Sources */,
+				470A206F28FB209E0066A667 /* EmptyListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +406,9 @@
 			files = (
 				47449F8928F6D746001323C4 /* SocialcademyUITestsLaunchTests.swift in Sources */,
 				470A205F28FABFFC0066A667 /* PostsRepository.swift in Sources */,
+				470A206B28FB17F40066A667 /* Loadable.swift in Sources */,
 				47449FA628F7670B001323C4 /* Post.swift in Sources */,
+				470A207028FB209E0066A667 /* EmptyListView.swift in Sources */,
 				47449FAE28F777C7001323C4 /* PostRow.swift in Sources */,
 				47449F8728F6D746001323C4 /* SocialcademyUITests.swift in Sources */,
 				470A205628F9D71F0066A667 /* NewPostForm.swift in Sources */,

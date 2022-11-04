@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct PostRow: View {
-    let post: Post
+  typealias DeleteAction = () async throws -> Void
+
+  let post: Post
+  let deleteAction: DeleteAction
 
   var body: some View {
           VStack(alignment: .leading, spacing: 10) {
@@ -33,7 +36,7 @@ struct PostRow: View {
 struct PostRow_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            PostRow(post: Post.testPost)
+          PostRow(post: Post.testPost, deleteAction: {})
         }
     }
 }

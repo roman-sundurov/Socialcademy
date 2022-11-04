@@ -9,13 +9,33 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct PostsRepository {
-    static let postsReference = Firestore.firestore().collection("posts")
+protocol PostsRepositoryProtocol {
+  func fetchPosts() async throws -> [Post]
+  func create(_ post: Post) async throws
+  func delete(_ post: Post) async throws
+}
 
-    static func create(_ post: Post) async throws {
-        let document = postsReference.document(post.id.uuidString)
-        try await document.setData(from: post)
+struct PostsRepository: PostsRepositoryProtocol {
+  let postsReference = Firestore.firestore().collection("posts")
+
+  func fetchPosts() async throws -> [Post] {
+    let snapshot = try await postsReference
+      .order(by: "timestamp", descending: true)
+      .getDocuments()
+    return snapshot.documents.compactMap { document in
+      try! document.data(as: Post.self)
     }
+  }
+
+  func delete(_ post: Post) async throws {
+    let document = postsReference.document(post.id.uuidString)
+    try await document.delete()
+  }
+
+  func create(_ post: Post) async throws {
+    let document = postsReference.document(post.id.uuidString)
+    try await document.setData(from: post)
+  }
 }
 
 private extension DocumentReference {
@@ -33,3 +53,18 @@ private extension DocumentReference {
         }
     }
 }
+
+#if DEBUG
+struct PostsRepositoryStub: PostsRepositoryProtocol {
+  func delete(_ post: Post) async throws {
+  }
+
+    let state: Loadable<[Post]>
+
+    func fetchPosts() async throws -> [Post] {
+        return try await state.simulate()
+    }
+
+    func create(_ post: Post) async throws {}
+}
+#endif
