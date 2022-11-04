@@ -35,10 +35,14 @@ struct PostsList: View {
         case let .loaded(posts):
           List(posts) { post in
             if searchText.isEmpty || post.contains(searchText) {
-              PostRow(post: post)
+              PostRow(
+                post: post,
+                deleteAction: viewModel.makeDeleteAction(for: post)
+              )
             }
           }
           .searchable(text: $searchText)
+          .animation(.default, value: posts)
         }
       }
       .navigationTitle("Posts")
