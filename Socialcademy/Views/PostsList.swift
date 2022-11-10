@@ -42,7 +42,7 @@ struct PostsList: View {
           .animation(.default, value: posts)
         }
       }
-      .navigationTitle("Posts")
+      .navigationTitle(viewModel.title)
       .toolbar {
         Button {
           showNewPostForm = true
@@ -60,12 +60,6 @@ struct PostsList: View {
     }
   }
 }
-
-// struct PostsList_Previews: PreviewProvider {
-//     static var previews: some View {
-//         PostsList()
-//     }
-// }
 
 #if DEBUG
 struct PostsList_Previews: PreviewProvider {

@@ -10,7 +10,8 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 protocol PostsRepositoryProtocol {
-  func fetchPosts() async throws -> [Post]
+  func fetchAllPosts() async throws -> [Post]
+  func fetchFavoritePosts() async throws -> [Post]
   func create(_ post: Post) async throws
   func delete(_ post: Post) async throws
   func favorite(_ post: Post) async throws
@@ -30,13 +31,20 @@ struct PostsRepository: PostsRepositoryProtocol {
       try await document.setData(["isFavorite": false], merge: true)
   }
 
-  func fetchPosts() async throws -> [Post] {
-    let snapshot = try await postsReference
-      .order(by: "timestamp", descending: true)
-      .getDocuments()
-    return snapshot.documents.compactMap { document in
-      try! document.data(as: Post.self)
-    }
+  private func fetchPosts(from query: Query) async throws -> [Post] {
+      let snapshot = try await query
+          .order(by: "timestamp", descending: true)
+          .getDocuments()
+      return snapshot.documents.compactMap { document in
+          try! document.data(as: Post.self)
+      }
+  }
+
+  func fetchAllPosts() async throws -> [Post] {
+    return try await fetchPosts(from: postsReference)  }
+
+  func fetchFavoritePosts() async throws -> [Post] {
+    return try await fetchPosts(from: postsReference.whereField("isFavorite", isEqualTo: true))
   }
 
   func delete(_ post: Post) async throws {
@@ -70,18 +78,20 @@ private extension DocumentReference {
 struct PostsRepositoryStub: PostsRepositoryProtocol {
 
   func favorite(_ post: Post) async throws {}
-
   func unfavorite(_ post: Post) async throws {}
-
   func delete(_ post: Post) async throws {
   }
 
-    let state: Loadable<[Post]>
+  let state: Loadable<[Post]>
 
-    func fetchPosts() async throws -> [Post] {
-        return try await state.simulate()
-    }
+  func fetchAllPosts() async throws -> [Post] {
+      return try await state.simulate()
+  }
 
-    func create(_ post: Post) async throws {}
+  func fetchFavoritePosts() async throws -> [Post] {
+      return try await state.simulate()
+  }
+
+  func create(_ post: Post) async throws {}
 }
 #endif
