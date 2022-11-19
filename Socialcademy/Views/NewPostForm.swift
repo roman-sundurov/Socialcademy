@@ -32,7 +32,6 @@ struct NewPostForm: View {
                   } else {
                       Text("Create Post")
                   }
-
               }
               .font(.headline)
               .frame(maxWidth: .infinity)
@@ -63,25 +62,25 @@ struct NewPostForm: View {
   }
 }
 
-struct NewPostForm_Previews: PreviewProvider {
-    static var previews: some View {
-      NewPostForm(createAction: { _ in })
-    }
-}
-
 extension NewPostForm {
   private enum FormState {
     case idle, working, error
 
     var isError: Bool {
-            get {
-                self == .error
-            }
-            set {
-                guard !newValue else { return }
-                self = .idle
-            }
-        }
-
+      get {
+        self == .error
+      }
+      set {
+        guard !newValue else { return }
+        self = .idle
+      }
+    }
   }
+}
+
+
+struct NewPostForm_Previews: PreviewProvider {
+    static var previews: some View {
+      NewPostForm(createAction: { _ in })
+    }
 }
