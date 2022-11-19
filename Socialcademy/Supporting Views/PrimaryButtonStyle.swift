@@ -9,14 +9,23 @@ import Foundation
 import SwiftUI
 
 struct PrimaryButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
+  @Environment(\.isEnabled) private var isEnabled
+
+  func makeBody(configuration: Configuration) -> some View {
+    Group {
+      if isEnabled {
         configuration.label
-            .padding()
-            .frame(maxWidth: .infinity)
-            .foregroundColor(.white)
-            .background(Color.accentColor)
-            .cornerRadius(10)
+      } else {
+        ProgressView()
+      }
     }
+    .padding()
+    .frame(maxWidth: .infinity)
+    .foregroundColor(.white)
+    .background(Color.accentColor)
+    .cornerRadius(10)
+    .animation(.default, value: isEnabled)
+  }
 }
 
 extension ButtonStyle where Self == PrimaryButtonStyle {

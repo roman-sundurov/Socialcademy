@@ -12,10 +12,10 @@ private struct ErrorAlertViewModifier: ViewModifier {
     @Binding var error: Error?
 
     func body(content: Content) -> some View {
-        content
-            .alert(title, isPresented: $error.hasValue, presenting: error, actions: { _ in }) { error in
-                Text(error.localizedDescription)
-            }
+      content
+        .alert(title, isPresented: $error.hasValue, presenting: error, actions: { _ in }) { error in
+          Text(error.localizedDescription)
+        }
     }
 }
 

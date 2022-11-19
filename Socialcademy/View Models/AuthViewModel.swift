@@ -10,8 +10,6 @@ import Foundation
 @MainActor
 class AuthViewModel: ObservableObject {
     @Published var isAuthenticated = false
-  // @Published var email = ""
-  // @Published var password = ""
 
     private let authService = AuthService()
 
