@@ -26,9 +26,19 @@ class PostsViewModel: ObservableObject {
       }
   }
 
-  init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol = PostsRepository()) {
+  init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol) {
       self.filter = filter
       self.postsRepository = postsRepository
+  }
+
+  func makeNewPostViewModel() -> FormViewModel<Post> {
+      return FormViewModel(
+          initialValue: Post(title: "", content: "", author: postsRepository.user),
+          action: { [weak self] post in
+              try await self?.postsRepository.create(post)
+              self?.posts.value?.insert(post, at: 0)
+          }
+      )
   }
 
   func makePostRowViewModel(for post: Post) -> PostRowViewModel {
@@ -58,12 +68,6 @@ class PostsViewModel: ObservableObject {
       }
   }
 
-  func makeCreateAction() -> NewPostForm.CreateAction {
-      return { [weak self] post in
-        try await self?.postsRepository.create(post)
-        self?.posts.value?.insert(post, at: 0)
-      }
-  }
 }
 
 private extension PostsRepositoryProtocol {

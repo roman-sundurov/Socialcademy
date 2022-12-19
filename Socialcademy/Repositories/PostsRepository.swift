@@ -16,10 +16,12 @@ protocol PostsRepositoryProtocol {
   func delete(_ post: Post) async throws
   func favorite(_ post: Post) async throws
   func unfavorite(_ post: Post) async throws
+  var user: User { get }
 }
 
 struct PostsRepository: PostsRepositoryProtocol {
-  let postsReference = Firestore.firestore().collection("posts_v1")
+  let user: User
+  let postsReference = Firestore.firestore().collection("posts_v2")
 
   func favorite(_ post: Post) async throws {
       let document = postsReference.document(post.id.uuidString)
@@ -76,6 +78,8 @@ private extension DocumentReference {
 
 #if DEBUG
 struct PostsRepositoryStub: PostsRepositoryProtocol {
+
+  var user = User.testUser
 
   func favorite(_ post: Post) async throws {}
   func unfavorite(_ post: Post) async throws {}

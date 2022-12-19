@@ -52,6 +52,12 @@
 		47787AB52915D0AC00FBF7D2 /* Alert+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47787AB42915D0AC00FBF7D2 /* Alert+Error.swift */; };
 		47787AB62915D0AC00FBF7D2 /* Alert+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47787AB42915D0AC00FBF7D2 /* Alert+Error.swift */; };
 		47787AB72915D0AD00FBF7D2 /* Alert+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47787AB42915D0AC00FBF7D2 /* Alert+Error.swift */; };
+		47D2982F294EA6390064C5D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D2982E294EA6390064C5D3 /* User.swift */; };
+		47D29830294EA6390064C5D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D2982E294EA6390064C5D3 /* User.swift */; };
+		47D29831294EA6390064C5D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D2982E294EA6390064C5D3 /* User.swift */; };
+		47D29833294EB52F0064C5D3 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D29832294EB52F0064C5D3 /* ViewModelFactory.swift */; };
+		47D29834294EB52F0064C5D3 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D29832294EB52F0064C5D3 /* ViewModelFactory.swift */; };
+		47D29835294EB52F0064C5D3 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D29832294EB52F0064C5D3 /* ViewModelFactory.swift */; };
 		47EBDDD429230885009BF1B6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 47EBDDD329230885009BF1B6 /* FirebaseAuth */; };
 		47EBDDD72923AA84009BF1B6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBDDD62923AA84009BF1B6 /* AuthService.swift */; };
 		47EBDDD82923AA84009BF1B6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EBDDD62923AA84009BF1B6 /* AuthService.swift */; };
@@ -112,6 +118,8 @@
 		47700EC6291D438A00F996C9 /* PostRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowViewModel.swift; sourceTree = "<group>"; };
 		47700ECA291D74CB00F996C9 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		47787AB42915D0AC00FBF7D2 /* Alert+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Error.swift"; sourceTree = "<group>"; };
+		47D2982E294EA6390064C5D3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		47D29832294EB52F0064C5D3 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		47EBDDD62923AA84009BF1B6 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		47EBDDDA2923AE47009BF1B6 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		47EBDDDE2923C599009BF1B6 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 				470A205828FABA960066A667 /* PostsViewModel.swift */,
 				47700EC6291D438A00F996C9 /* PostRowViewModel.swift */,
 				47EBDDDA2923AE47009BF1B6 /* AuthViewModel.swift */,
+				47D29832294EB52F0064C5D3 /* ViewModelFactory.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -209,6 +218,7 @@
 		47449F6A28F6D743001323C4 /* Socialcademy */ = {
 			isa = PBXGroup;
 			children = (
+				47D2982D294EA61D0064C5D3 /* Models */,
 				47449F6B28F6D743001323C4 /* SocialcademyApp.swift */,
 				47EBDDD52923AA61009BF1B6 /* Services */,
 				470A206628FB17D60066A667 /* Utilities */,
@@ -277,6 +287,14 @@
 				47449FA328F7670B001323C4 /* Post.swift */,
 			);
 			path = Post;
+			sourceTree = "<group>";
+		};
+		47D2982D294EA61D0064C5D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				47D2982E294EA6390064C5D3 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		47EBDDD0292307DD009BF1B6 /* Frameworks */ = {
@@ -449,11 +467,13 @@
 				47449FA828F76821001323C4 /* PostsList.swift in Sources */,
 				47787AB52915D0AC00FBF7D2 /* Alert+Error.swift in Sources */,
 				47EBDDDB2923AE47009BF1B6 /* AuthViewModel.swift in Sources */,
+				47D29833294EB52F0064C5D3 /* ViewModelFactory.swift in Sources */,
 				47EBDDDF2923C599009BF1B6 /* AuthView.swift in Sources */,
 				470A205428F9D71F0066A667 /* NewPostForm.swift in Sources */,
 				47EBDDEB2926695A009BF1B6 /* FormViewModel.swift in Sources */,
 				470A206E28FB209E0066A667 /* EmptyListView.swift in Sources */,
 				47700ECB291D74CB00F996C9 /* MainTabView.swift in Sources */,
+				47D2982F294EA6390064C5D3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,11 +494,13 @@
 				47449FA528F7670B001323C4 /* Post.swift in Sources */,
 				47787AB62915D0AC00FBF7D2 /* Alert+Error.swift in Sources */,
 				47EBDDDC2923AE47009BF1B6 /* AuthViewModel.swift in Sources */,
+				47D29834294EB52F0064C5D3 /* ViewModelFactory.swift in Sources */,
 				47EBDDE02923C599009BF1B6 /* AuthView.swift in Sources */,
 				470A205528F9D71F0066A667 /* NewPostForm.swift in Sources */,
 				47EBDDEC2926695A009BF1B6 /* FormViewModel.swift in Sources */,
 				470A206F28FB209E0066A667 /* EmptyListView.swift in Sources */,
 				47700ECC291D74CB00F996C9 /* MainTabView.swift in Sources */,
+				47D29830294EA6390064C5D3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,8 +514,10 @@
 				47700EC9291D438A00F996C9 /* PostRowViewModel.swift in Sources */,
 				470A206B28FB17F40066A667 /* Loadable.swift in Sources */,
 				47EBDDDD2923AE47009BF1B6 /* AuthViewModel.swift in Sources */,
+				47D29835294EB52F0064C5D3 /* ViewModelFactory.swift in Sources */,
 				47EBDDE12923C599009BF1B6 /* AuthView.swift in Sources */,
 				47449FA628F7670B001323C4 /* Post.swift in Sources */,
+				47D29831294EA6390064C5D3 /* User.swift in Sources */,
 				470A207028FB209E0066A667 /* EmptyListView.swift in Sources */,
 				47EBDDE529240135009BF1B6 /* ProfileView.swift in Sources */,
 				47700ECD291D74CB00F996C9 /* MainTabView.swift in Sources */,
