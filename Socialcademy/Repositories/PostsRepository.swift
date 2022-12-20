@@ -38,12 +38,9 @@ struct PostsRepository: PostsRepositoryProtocol {
   }
 
   private func fetchPosts(from query: Query) async throws -> [Post] {
-      let snapshot = try await query
-          .order(by: "timestamp", descending: true)
-          .getDocuments()
-      return snapshot.documents.compactMap { document in
-          try! document.data(as: Post.self)
-      }
+    return try await query
+      .order(by: "timestamp", descending: true)
+      .getDocuments(as: Post.self)
   }
 
   func fetchAllPosts() async throws -> [Post] {
@@ -100,6 +97,30 @@ private extension PostsRepository {
     let postID: Post.ID
     let userID: User.ID
   }
+
+  func fetchFavorites() async throws -> [Post.ID] {
+    return try await favoritesReference
+      .whereField("userID", isEqualTo: user.id)
+      .getDocuments(as: Favorite.self)
+      .map(\.postID)
+  }
+}
+
+private extension Post {
+  func setting<T>(_ property: WritableKeyPath<Post, T>, to newValue: T) -> Post {
+    var post = self
+    post[keyPath: property] = newValue
+    return post
+  }
+}
+
+private extension Query {
+    func getDocuments<T: Decodable>(as type: T.Type) async throws -> [T] {
+        let snapshot = try await getDocuments()
+        return snapshot.documents.compactMap { document in
+            try! document.data(as: type)
+        }
+    }
 }
 
 #if DEBUG
