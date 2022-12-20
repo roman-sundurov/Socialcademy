@@ -13,64 +13,51 @@ struct PostsList: View {
   @State private var showNewPostForm = false
 
   var body: some View {
-    NavigationView {
-      Group {
-        switch viewModel.posts {
-        case .loading:
-            ProgressView()
-          case let .error(error):
-            EmptyListView(
-              title: "Cannot Load Posts",
-              message: error.localizedDescription,
-              retryAction: {
-                viewModel.fetchPosts()
-              }
-            )
-          case .empty:
-            EmptyListView(
-              title: "No Posts",
-              message: "There aren’t any posts yet."
-            )
-        case let .loaded(posts):
-
-
-          // List(posts) { post in
-          //   if searchText.isEmpty || post.contains(searchText) {
-          //     PostRow(viewModel: viewModel.makePostRowViewModel(for: post))
-          //   }
-          // }
-          // .searchable(text: $searchText)
-          // .animation(.default, value: posts)
-
-          ScrollView {
-            ForEach(posts) { post in
-              if searchText.isEmpty || post.contains(searchText) {
-                PostRow(viewModel: viewModel.makePostRowViewModel(for: post))
-              }
-            }
-            .searchable(text: $searchText)
-            .animation(.default, value: posts)
+    Group {
+      switch viewModel.posts {
+      case .loading:
+        ProgressView()
+      case let .error(error):
+        EmptyListView(
+          title: "Cannot Load Posts",
+          message: error.localizedDescription,
+          retryAction: {
+            viewModel.fetchPosts()
           }
-
+        )
+      case .empty:
+        EmptyListView(
+          title: "No Posts",
+          message: "There aren’t any posts yet."
+        )
+      case let .loaded(posts):
+        ScrollView {
+          ForEach(posts) { post in
+            if searchText.isEmpty || post.contains(searchText) {
+              PostRow(viewModel: viewModel.makePostRowViewModel(for: post))
+            }
+          }
+          .searchable(text: $searchText)
+          .animation(.default, value: posts)
         }
       }
-      .navigationTitle(viewModel.title)
-      .toolbar {
-        Button {
-          showNewPostForm = true
-        } label: {
-          Label("New Post", systemImage: "square.and.pencil")
-        }
-      }
-      .searchable(text: $searchText)
+    }
+    .navigationTitle(viewModel.title)
+    .onAppear {
+      viewModel.fetchPosts()
     }
     .sheet(isPresented: $showNewPostForm) {
       NewPostForm(viewModel: viewModel.makeNewPostViewModel())
     }
-    .onAppear {
-      viewModel.fetchPosts()
+    .toolbar {
+      Button {
+        showNewPostForm = true
+      } label: {
+        Label("New Post", systemImage: "square.and.pencil")
+      }
     }
   }
+
 }
 
 #if DEBUG
@@ -89,7 +76,9 @@ struct PostsList_Previews: PreviewProvider {
         var body: some View {
             let postsRepository = PostsRepositoryStub(state: state)
             let viewModel = PostsViewModel(postsRepository: postsRepository)
+          NavigationView {
             PostsList(viewModel: viewModel)
+          }
         }
     }
 }
