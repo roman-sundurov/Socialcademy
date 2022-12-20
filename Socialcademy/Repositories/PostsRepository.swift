@@ -23,15 +23,18 @@ protocol PostsRepositoryProtocol {
 struct PostsRepository: PostsRepositoryProtocol {
   let user: User
   let postsReference = Firestore.firestore().collection("posts_v2")
+  let favoritesReference = Firestore.firestore().collection("favorites")
 
   func favorite(_ post: Post) async throws {
-      let document = postsReference.document(post.id.uuidString)
-      try await document.setData(["isFavorite": true], merge: true)
+      let favorite = Favorite(postID: post.id, userID: user.id)
+      let document = favoritesReference.document(favorite.id)
+      try await document.setData(from: favorite)
   }
 
   func unfavorite(_ post: Post) async throws {
-      let document = postsReference.document(post.id.uuidString)
-      try await document.setData(["isFavorite": false], merge: true)
+      let favorite = Favorite(postID: post.id, userID: user.id)
+      let document = favoritesReference.document(favorite.id)
+      try await document.delete()
   }
 
   private func fetchPosts(from query: Query) async throws -> [Post] {
@@ -86,6 +89,17 @@ extension PostsRepositoryProtocol {
     func canDelete(_ post: Post) -> Bool {
         post.author.id == user.id
     }
+}
+
+private extension PostsRepository {
+  struct Favorite: Identifiable, Codable {
+    var id: String {
+      postID.uuidString + "-" + userID
+    }
+
+    let postID: Post.ID
+    let userID: User.ID
+  }
 }
 
 #if DEBUG
