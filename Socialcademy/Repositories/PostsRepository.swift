@@ -37,12 +37,6 @@ struct PostsRepository: PostsRepositoryProtocol {
       try await document.delete()
   }
 
-  private func fetchPosts(from query: Query) async throws -> [Post] {
-    return try await query
-      .order(by: "timestamp", descending: true)
-      .getDocuments(as: Post.self)
-  }
-
   func fetchAllPosts() async throws -> [Post] {
     return try await fetchPosts(from: postsReference)  }
 
@@ -93,7 +87,6 @@ private extension PostsRepository {
     var id: String {
       postID.uuidString + "-" + userID
     }
-
     let postID: Post.ID
     let userID: User.ID
   }
@@ -104,6 +97,17 @@ private extension PostsRepository {
       .getDocuments(as: Favorite.self)
       .map(\.postID)
   }
+
+  private func fetchPosts(from query: Query) async throws -> [Post] {
+    let (posts, favorites) = try await (
+        query.order(by: "timestamp", descending: true).getDocuments(as: Post.self),
+        fetchFavorites()
+    )
+    return posts.map { post in
+        post.setting(\.isFavorite, to: favorites.contains(post.id))
+    }
+  }
+
 }
 
 private extension Post {
