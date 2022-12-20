@@ -11,16 +11,19 @@ import Foundation
 class PostsViewModel: ObservableObject {
 
   enum Filter {
-      case all, favorites
+      case all, author(User), favorites
   }
   
   @Published var posts: Loadable<[Post]> = .loading
   private let postsRepository: PostsRepositoryProtocol
   private let filter: Filter
+
   var title: String {
       switch filter {
       case .all:
           return "Posts"
+      case let .author(author):
+              return "\(author.name)’s Posts"
       case .favorites:
           return "Favorites"
       }
@@ -40,22 +43,6 @@ class PostsViewModel: ObservableObject {
           }
       )
   }
-
-  // func makePostRowViewModel(for post: Post) -> PostRowViewModel {
-  //     return PostRowViewModel(
-  //         post: post,
-  //         deleteAction: { [weak self] in
-  //             try await self?.postsRepository.delete(post)
-  //             self?.posts.value?.removeAll { $0 == post }
-  //         },
-  //         favoriteAction: { [weak self] in
-  //             let newValue = !post.isFavorite
-  //             try await newValue ? self?.postsRepository.favorite(post) : self?.postsRepository.unfavorite(post)
-  //             guard let i = self?.posts.value?.firstIndex(of: post) else { return }
-  //             self?.posts.value?[i].isFavorite = newValue
-  //         }
-  //     )
-  // }
 
   func makePostRowViewModel(for post: Post) -> PostRowViewModel {
       let deleteAction = { [weak self] in
@@ -93,6 +80,8 @@ private extension PostsRepositoryProtocol {
         switch filter {
         case .all:
             return try await fetchAllPosts()
+        case let .author(author):
+                return try await fetchPosts(by: author)
         case .favorites:
             return try await fetchFavoritePosts()
         }

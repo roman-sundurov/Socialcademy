@@ -16,6 +16,7 @@ protocol PostsRepositoryProtocol {
   func delete(_ post: Post) async throws
   func favorite(_ post: Post) async throws
   func unfavorite(_ post: Post) async throws
+  func fetchPosts(by author: User) async throws -> [Post]
   var user: User { get }
 }
 
@@ -58,6 +59,10 @@ struct PostsRepository: PostsRepositoryProtocol {
   func create(_ post: Post) async throws {
     let document = postsReference.document(post.id.uuidString)
     try await document.setData(from: post)
+  }
+
+  func fetchPosts(by author: User) async throws -> [Post] {
+      return try await fetchPosts(from: postsReference.whereField("author.id", isEqualTo: author.id))
   }
 }
 
@@ -104,5 +109,9 @@ struct PostsRepositoryStub: PostsRepositoryProtocol {
   }
 
   func create(_ post: Post) async throws {}
+
+  func fetchPosts(by author: User) async throws -> [Post] {
+      return try await state.simulate()
+  }
 }
 #endif
