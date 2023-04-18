@@ -14,7 +14,7 @@ class FormViewModel<Value>: ObservableObject {
 
     @Published var value: Value
     @Published var error: Error?
-  @Published var isWorking = false
+    @Published var isWorking = false
 
     subscript<T>(dynamicMember keyPath: WritableKeyPath<Value, T>) -> T {
         get { value[keyPath: keyPath] }

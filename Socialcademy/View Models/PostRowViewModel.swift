@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 @dynamicMemberLookup
-class PostRowViewModel: ObservableObject {
+class PostRowViewModel: ObservableObject, ErrorHandler {
   typealias Action = () async throws -> Void
 
   var canDeletePost: Bool { deleteAction != nil }
