@@ -126,6 +126,9 @@ private extension AuthView {
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView()
+        AuthView(
+            viewModel: AuthViewModel(),
+            authForm: AuthForm.signInForm
+        )
     }
 }

@@ -13,6 +13,7 @@ struct PostRow: View {
 
     @State private var showConfirmationDialog = false
     @State private var error: Error?
+    @State var imageURL2: URL?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -23,6 +24,11 @@ struct PostRow: View {
                     .font(.caption)
             }
             .foregroundColor(.gray)
+            if let imageURL = viewModel.imageURL {
+                PostImage(url: imageURL)
+            } else if let imageURL2 = imageURL2 {
+                PostImage(url: imageURL2)
+            }
             Text(viewModel.title)
                 .font(.title3)
                 .fontWeight(.semibold)
@@ -47,6 +53,14 @@ struct PostRow: View {
                 }
             }
             .labelStyle(.iconOnly)
+            .onAppear {
+                Task {
+                    imageURL2 = try await StorageFile
+                        .with(namespace: "posts", identifier: viewModel.id.uuidString)
+                        .getDownloadURL()
+                }
+            }
+
         }
         .padding()
         .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
@@ -89,6 +103,21 @@ private extension PostRow {
                 Text(author.name)
                     .font(.subheadline)
                     .fontWeight(.medium)
+            }
+        }
+    }
+
+    struct PostImage: View {
+        let url: URL
+
+        var body: some View {
+            AsyncImage(url: url) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            } placeholder: {
+                Color.clear
             }
         }
     }

@@ -62,7 +62,8 @@ private extension CommentsList {
                     if viewModel.isWorking {
                         ProgressView()
                     } else {
-                        Label("Post", systemImage: "paperplane")
+                        // Label("Post", systemImage: "paperplane")
+                        Image(systemName: "paperplane")
                     }
                 }
             }

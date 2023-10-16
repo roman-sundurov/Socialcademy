@@ -56,12 +56,21 @@ struct PostsRepository: PostsRepositoryProtocol {
     precondition(canDelete(post))
     let document = postsReference.document(post.id.uuidString)
     try await document.delete()
+    let image = post.imageURL.map(StorageFile.atURL(_:))
+    try await image?.delete()
   }
 
-  func create(_ post: Post) async throws {
-    let document = postsReference.document(post.id.uuidString)
-    try await document.setData(from: post)
-  }
+    func create(_ post: Post) async throws {
+        var post = post
+        if let imageFileURL = post.imageURL {
+            post.imageURL = try await StorageFile
+                .with(namespace: "posts", identifier: post.id.uuidString)
+                .putFile(from: imageFileURL)
+                .getDownloadURL()
+        }
+        let document = postsReference.document(post.id.uuidString)
+        try await document.setData(from: post)
+    }
 
   func fetchPosts(by author: User) async throws -> [Post] {
       return try await fetchPosts(from: postsReference.whereField("author.id", isEqualTo: author.id))
