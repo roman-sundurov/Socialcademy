@@ -16,21 +16,21 @@ struct AuthView: View {
     @StateObject var viewModel = AuthViewModel()
     @State var authForm = AuthForm.signInForm
 
-  var body: some View {
-    if let user = viewModel.user {
-      MainTabView()
-        .environmentObject(ViewModelFactory(user: user))
-    } else {
-        NavigationView {
-            switch authForm {
-            case .signInForm:
-                SignInForm(viewModel: viewModel.makeSignInViewModel(), authForm: $authForm)
-            case .createAccount:
-                CreateAccountForm(viewModel: viewModel.makeCreateAccountViewModel(), authForm: $authForm)
+    var body: some View {
+        if let viewModelFactory = viewModel.makeViewModelFactory() {
+            MainTabView()
+                .environmentObject(viewModelFactory)
+        } else {
+            NavigationView {
+                switch authForm {
+                case .signInForm:
+                    SignInForm(viewModel: viewModel.makeSignInViewModel(), authForm: $authForm)
+                case .createAccount:
+                    CreateAccountForm(viewModel: viewModel.makeCreateAccountViewModel(), authForm: $authForm)
+                }
             }
         }
     }
-  }
 }
 
 // private extension AuthView {
