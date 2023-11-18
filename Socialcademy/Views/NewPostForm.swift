@@ -74,7 +74,6 @@ private extension NewPostForm {
     }
 }
 
-
 struct NewPostForm_Previews: PreviewProvider {
     static var previews: some View {
         NewPostForm(

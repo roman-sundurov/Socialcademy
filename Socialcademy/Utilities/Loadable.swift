@@ -8,22 +8,20 @@
 import Foundation
 
 enum Loadable<Value> {
-  case loading
-  case error(Error)
-  case loaded(Value)
+    case loading
+    case error(Error)
+    case loaded(Value)
 
-  var value: Value? {
-    get {
-      if case let .loaded(value) = self {
-        return value
-      }
-      return nil
+    var value: Value? {
+        get {
+            guard case let .loaded(value) = self else { return nil }
+            return value
+        }
+        set {
+            guard let newValue = newValue else { return }
+            self = .loaded(newValue)
+        }
     }
-    set {
-      guard let newValue = newValue else { return }
-      self = .loaded(newValue)
-    }
-  }
 }
 
 extension Loadable where Value: RangeReplaceableCollection {
@@ -48,23 +46,22 @@ extension Loadable: Equatable where Value: Equatable {
 #if DEBUG
 extension Loadable {
 
-  static var error: Loadable<Value> { .error(PreviewError()) }
+    static var error: Loadable<Value> { .error(PreviewError()) }
 
-  private struct PreviewError: LocalizedError {
-      let errorDescription: String? = "Lorem ipsum dolor set amet."
-  }
+    private struct PreviewError: LocalizedError {
+        let errorDescription: String? = "Lorem ipsum dolor set amet."
+    }
 
-  func simulate() async throws -> Value {
-      switch self {
-      case .loading:
-          try await Task.sleep(nanoseconds: 10 * 1_000_000_000)
-          fatalError("Timeout exceeded for “loading” case preview")
-      case let .error(error):
-          throw error
-      case let .loaded(value):
-          return value
-      }
-  }
-
+    func simulate() async throws -> Value {
+        switch self {
+        case .loading:
+            try await Task.sleep(nanoseconds: 10 * 1_000_000_000)
+            fatalError("Timeout exceeded for “loading” case preview")
+        case let .error(error):
+            throw error
+        case let .loaded(value):
+            return value
+        }
+    }
 }
 #endif

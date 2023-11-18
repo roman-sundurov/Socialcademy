@@ -18,7 +18,7 @@ extension StateManager {
 
     var isWorking: Bool {
         get { false }
-        set {}
+        set { }
     }
 
     private func withStateManagement(perform action: @escaping Action) async {
@@ -35,12 +35,6 @@ extension StateManager {
     nonisolated func withStateManagingTask(perform action: @escaping () async throws -> Void) {
         Task {
             await withStateManagement(perform: action)
-            // do {
-            //     try await action()
-            // } catch {
-            //     print("[\(Self.self)] Error: \(error)")
-            //     self.error = error
-            // }
         }
     }
 }

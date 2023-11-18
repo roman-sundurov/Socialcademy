@@ -23,6 +23,7 @@
 		470A206E28FB209E0066A667 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470A206D28FB209E0066A667 /* EmptyListView.swift */; };
 		470A206F28FB209E0066A667 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470A206D28FB209E0066A667 /* EmptyListView.swift */; };
 		470A207028FB209E0066A667 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470A206D28FB209E0066A667 /* EmptyListView.swift */; };
+		470CEF6B2B095D110008339F /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 470CEF6A2B095D110008339F /* swiftlint.yml */; };
 		473897802AF2DA18002CE060 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4738977F2AF2DA18002CE060 /* ProfileViewModel.swift */; };
 		473897822AF38520002CE060 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473897812AF38520002CE060 /* ProfileImage.swift */; };
 		47449F6C28F6D743001323C4 /* SocialcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47449F6B28F6D743001323C4 /* SocialcademyApp.swift */; };
@@ -110,6 +111,7 @@
 		470A206228FAEA030066A667 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		470A206828FB17F40066A667 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		470A206D28FB209E0066A667 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		470CEF6A2B095D110008339F /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		4738977F2AF2DA18002CE060 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		473897812AF38520002CE060 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		47449F6828F6D743001323C4 /* Socialcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Socialcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +229,7 @@
 		47449F5F28F6D743001323C4 = {
 			isa = PBXGroup;
 			children = (
+				470CEF6A2B095D110008339F /* swiftlint.yml */,
 				47449F6A28F6D743001323C4 /* Socialcademy */,
 				47449F7B28F6D746001323C4 /* SocialcademyTests */,
 				47449F8528F6D746001323C4 /* SocialcademyUITests */,
@@ -351,6 +354,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47449F8C28F6D746001323C4 /* Build configuration list for PBXNativeTarget "Socialcademy" */;
 			buildPhases = (
+				470CEF6C2B095D280008339F /* SwiftLint */,
 				47449F6428F6D743001323C4 /* Sources */,
 				47449F6528F6D743001323C4 /* Frameworks */,
 				47449F6628F6D743001323C4 /* Resources */,
@@ -415,7 +419,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					47449F6728F6D743001323C4 = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -459,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47449F7328F6D745001323C4 /* Preview Assets.xcassets in Resources */,
+				470CEF6B2B095D110008339F /* swiftlint.yml in Resources */,
 				47449F7028F6D745001323C4 /* Assets.xcassets in Resources */,
 				470A206328FAEA030066A667 /* GoogleService-Info.plist in Resources */,
 			);
@@ -481,6 +486,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		470CEF6C2B095D280008339F /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		47449F6428F6D743001323C4 /* Sources */ = {
@@ -591,6 +618,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -623,6 +651,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -651,6 +680,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -683,6 +713,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -711,6 +742,7 @@
 				DEVELOPMENT_ASSET_PATHS = "Socialcademy/Resources/GoogleService-Info.plist";
 				DEVELOPMENT_TEAM = 6VWFU6AND8;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This lets you add photos to your profile and posts.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -722,8 +754,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = roman.sundurov.work.Socialcademy;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.romansundurov.Socialcademy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -741,6 +773,7 @@
 				DEVELOPMENT_ASSET_PATHS = "Socialcademy/Resources/GoogleService-Info.plist";
 				DEVELOPMENT_TEAM = 6VWFU6AND8;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This lets you add photos to your profile and posts.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -752,8 +785,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = roman.sundurov.work.Socialcademy;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.romansundurov.Socialcademy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -770,7 +803,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6VWFU6AND8;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = roman.sundurov.work.SocialcademyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -790,7 +823,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6VWFU6AND8;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = roman.sundurov.work.SocialcademyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -16,7 +16,7 @@ struct CommentsList: View {
                 switch viewModel.comments {
                 case .loading:
                     ProgressView()
-                        .onAppear() {
+                        .onAppear {
                             viewModel.fetchComments()
                         }
                 case let .error(error):

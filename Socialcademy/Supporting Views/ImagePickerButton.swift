@@ -15,13 +15,15 @@ struct ImagePickerButton<Label: View>: View {
     @State private var showImageSourceDialog = false
     @State private var sourceType: UIImagePickerController.SourceType?
 
-
     var body: some View {
-        Button(action: {
-            showImageSourceDialog = true
-        }) {
-            label()
-        }
+        Button(
+            action: {
+                showImageSourceDialog = true
+            },
+            label: {
+                label()
+            }
+        )
         .confirmationDialog("Choose Image", isPresented: $showImageSourceDialog) {
             Button("Choose from Library", action: {
                 sourceType = .photoLibrary
@@ -77,15 +79,17 @@ private extension ImagePickerButton {
             self.view = view
         }
 
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            // if let imageURL = info[.imageURL] as? URL {
-            //     view.onSelect(imageURL)
-            // }
+        func imagePickerController(
+            _ picker: UIImagePickerController,
+            didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+        ) {
 
             if let image = info[.originalImage] as? UIImage,
                let data = image.jpegData(compressionQuality: 1.0) {
                 let tempDirectory = NSTemporaryDirectory()
-                let imageURL = URL(fileURLWithPath: tempDirectory).appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
+                let imageURL = URL(fileURLWithPath: tempDirectory)
+                    .appendingPathComponent(UUID().uuidString)
+                    .appendingPathExtension("jpg")
                 do {
                     try data.write(to: imageURL, options: .atomic)
                     view.onSelect(imageURL)

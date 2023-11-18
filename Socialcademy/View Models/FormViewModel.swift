@@ -33,22 +33,4 @@ class FormViewModel<Value>: ObservableObject, StateManager {
             try await action(value)
         }
     }
-
-  // nonisolated func submit() {
-  //     Task {
-  //         await handleSubmit()
-  //     }
-  // }
-  // 
-  // private func handleSubmit() async {
-  //   isWorking = true
-  //     do {
-  //         try await action(value)
-  //     } catch {
-  //         print("[FormViewModel] Cannot submit: \(error)")
-  //         self.error = error
-  //     }
-  //   isWorking = false
-  // }
-
 }

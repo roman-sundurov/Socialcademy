@@ -16,10 +16,6 @@ struct Post: Identifiable, Equatable {
     var timestamp = Date()
     var id = UUID()
 
-    // enum CodingKeys: CodingKey {
-    //     case title, content, author, imageURL, timestamp, id
-    // }
-
     func contains(_ string: String) -> Bool {
         let properties = [title, content, author.name].map { $0.lowercased() }
         let query = string.lowercased()

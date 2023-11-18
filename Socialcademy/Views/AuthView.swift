@@ -33,27 +33,6 @@ struct AuthView: View {
     }
 }
 
-// private extension AuthView {
-//   struct Form<Content: View, Footer: View>: View {
-//     @ViewBuilder let content: () -> Content
-//     @ViewBuilder let footer: () -> Footer
-// 
-//     var body: some View {
-//       VStack {
-//         Text("Socialcademy")
-//           .font(.title.bold())
-//         content()
-//           .padding()
-//           .background(Color.secondary.opacity(0.15))
-//           .cornerRadius(10)
-//         footer()
-//       }
-//       .navigationBarHidden(true)
-//       .padding()
-//     }
-//   }
-// }
-
 private extension AuthView {
     struct CreateAccountForm: View {
         @Environment(\.dismiss) private var dismiss
@@ -62,8 +41,8 @@ private extension AuthView {
 
         var body: some View {
             VStack {
-              Text("Socialcademy")
-                .font(.title.bold())
+                Text("Socialcademy")
+                    .font(.title.bold())
                 Group {
                     TextField("Name", text: $viewModel.name)
                         .textContentType(.name)
