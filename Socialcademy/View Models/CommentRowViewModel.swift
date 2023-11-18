@@ -15,7 +15,7 @@ class CommentRowViewModel: ObservableObject, StateManager {
 
     typealias Action = () async throws -> Void
     var canDeleteComment: Bool { deleteAction != nil }
-    
+
     private let deleteAction: Action?
 
     subscript<T>(dynamicMember keyPath: KeyPath<Comment, T>) -> T {
@@ -33,5 +33,4 @@ class CommentRowViewModel: ObservableObject, StateManager {
         }
         withStateManagingTask(perform: deleteAction)
     }
-
 }

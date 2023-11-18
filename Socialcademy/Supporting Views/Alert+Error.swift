@@ -13,9 +13,13 @@ private struct ErrorAlertViewModifier: ViewModifier {
 
     func body(content: Content) -> some View {
       content
-        .alert(title, isPresented: $error.hasValue, presenting: error, actions: { _ in }) { error in
-          Text(error.localizedDescription)
-        }
+        .alert(
+            title,
+            isPresented: $error.hasValue,
+            presenting: error,
+            actions: { _ in },
+            message: { error in Text(error.localizedDescription) }
+        )
     }
 }
 

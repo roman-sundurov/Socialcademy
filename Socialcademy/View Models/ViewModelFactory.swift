@@ -30,7 +30,6 @@ class ViewModelFactory: ObservableObject {
     }
 }
 
-
 #if DEBUG
 extension ViewModelFactory {
     static let preview = ViewModelFactory(user: User.testUser, authService: AuthService())

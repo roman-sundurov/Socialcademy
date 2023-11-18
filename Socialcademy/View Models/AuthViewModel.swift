@@ -41,7 +41,7 @@ extension AuthViewModel {
             self.init(initialValue: (email: "", password: ""), action: action)
         }
     }
-    
+
     class CreateAccountViewModel: FormViewModel<(name: String, email: String, password: String)> {
         convenience init(action: @escaping Action) {
             self.init(initialValue: (name: "", email: "", password: ""), action: action)

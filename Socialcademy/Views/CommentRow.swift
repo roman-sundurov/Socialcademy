@@ -28,7 +28,11 @@ struct CommentRow: View {
                 .fontWeight(.regular)
         }
         .padding(5)
-        .confirmationDialog("Are you sure you want to delete this comment?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
+        .confirmationDialog(
+            "Are you sure you want to delete this comment?",
+            isPresented: $showConfirmationDialog,
+            titleVisibility: .visible
+        ) {
             Button("Delete", role: .destructive, action: {
                 viewModel.deleteComment()
             })
@@ -44,15 +48,6 @@ struct CommentRow: View {
                 }
                 .tint(Color.red)
             })
-        // .swipeActions {
-        //     if viewModel.canDeleteComment {
-        //         Button(role: ButtonRole.destructive) {
-        //             showConfirmationDialog = true
-        //         } label: {
-        //             Label("Delete", systemImage: "trash")
-        //         }
-        //     }
-        // }
     }
 }
 
