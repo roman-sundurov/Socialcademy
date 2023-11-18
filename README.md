@@ -9,7 +9,7 @@ I will be very grateful if you tell me about errors in the project or suggest im
 - Language - Swift
 - Interface - SwiftUI
 - Architecture - MVVM
-- Database - Firebase Firestore
+- Database - [Firebase Firestore](https://github.com/firebase/firebase-ios-sdk)
 - Package dependencies - SPM
 - Frameworks - SwiftLint
 
