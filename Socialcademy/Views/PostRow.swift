@@ -45,11 +45,15 @@ struct PostRow: View {
                 }
                 Spacer()
                 if viewModel.canDeletePost {
-                    Button(role: .destructive, action: {
-                        showConfirmationDialog = true
-                    }) {
-                        Label("Delete", systemImage: "trash")
-                    }
+                    Button(
+                        role: .destructive,
+                        action: {
+                            showConfirmationDialog = true
+                        },
+                        label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    )
                 }
             }
             .labelStyle(.iconOnly)
@@ -63,14 +67,17 @@ struct PostRow: View {
 
         }
         .padding()
-        .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
+        .confirmationDialog(
+            "Are you sure you want to delete this post?",
+            isPresented: $showConfirmationDialog,
+            titleVisibility: .visible
+        ) {
             Button("Delete", role: .destructive, action: {
                 viewModel.deletePost()
             })
         }
         .alert("Error", error: $viewModel.error)
     }
-
 }
 
 private extension PostRow {
@@ -100,9 +107,13 @@ private extension PostRow {
             NavigationLink {
                 PostsList(viewModel: factory.makePostsViewModel(filter: .author(author)))
             } label: {
-                Text(author.name)
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+                HStack {
+                    ProfileImage(url: author.imageURL)
+                        .frame(width: 40, height: 40)
+                    Text(author.name)
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                }
             }
         }
     }
