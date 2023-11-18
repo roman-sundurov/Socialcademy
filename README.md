@@ -1,5 +1,5 @@
 # Socialcademy
-The project where I experimented with SwiftUI and Firebase while completing the course Codecademy iOS Developer Career Path (https://www.codecademy.com/learn/paths/ios-developer). The application is a prototype of a social network with registration, feed, and adding posts, and comments.
+The application is a prototype of a social network with registration, post feed, and adding posts and comments. The project where I experimented with SwiftUI and Firebase while completing the course Codecademy iOS Developer Career Path (https://www.codecademy.com/learn/paths/ios-developer).
 
 The project was created in 2022, and the refactoring was in 2023.
 
